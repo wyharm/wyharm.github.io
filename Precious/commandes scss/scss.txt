@@ -1,0 +1,45 @@
+
+$color:yellow;
+$taille:200px;
+
+@mixin myAnneau($color,$taille){
+
+
+height: $taille;
+width: $taille;
+border-radius: $taille;
+
+border: solid $taille/30 $color;
+  box-shadow : $taille/15 $taille/30 $taille/30 $taille/-30 darken($color,50),
+  
+$taille/15 $taille/30 $taille/30 $taille/-30 darken($color,50) inset;
+  
+}
+
+$color:orange;
+$taille:40px;
+
+
+.firstring{@include myAnneau($color,$taille)}
+
+
+$color:yellow;
+$taille:200px;
+
+.goldenring{@include myAnneau($color,$taille)}
+
+
+
+
+$color:black;
+$taille:40px;
+
+
+
+@for $i from 1 through 6{
+  .span:nth-child(#{$i}){
+    @include myAnneau($color,$taille*$i*0.5);
+    margin-right:-30px;
+    margin-left:17px;
+}
+}
